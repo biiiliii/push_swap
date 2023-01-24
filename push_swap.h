@@ -20,19 +20,21 @@
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Structs]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 
 typedef struct s_stack
-{
-	int	*nums;
-	int	top_num;
-	int	len;
+{	
+	int val;
+	struct s_stack *next;
+	struct s_stack *prev;
 }	t_stack;
 
-typedef struct s_meta
+typedef struct s_var
 {
-	s_stack		a;
-	s_stack		b;
-	int			moves;
-	int			total_nums;
-}	t_meta;
+	struct s_stack		a;
+	struct s_stack		b;
+	int					len_a;
+	int					len_b;
+	int					moves;
+	int					total_nums;
+}	t_var;
 
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Error manager]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/

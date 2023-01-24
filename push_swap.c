@@ -12,33 +12,28 @@
 
 #include "push_swap.h"
 
-// this function returns the amount of moves that the program must do to reach
-// an specific number, it will return a negative number if the number is closer
-// to the bottomside
-int	smart_search(int num, t_stack *stack)
+void smart_search(t_var *var, int value)
 {
-	int	i;
-	int	j;
-
-	i = -1;
-	j = stack->len;
-	while (--j >= 0)
-	{
-		if (stack->nums[++i] == num)
-			return (i);
-		else if (stack->nums[j] == num)
-			return ((i + 1) * -1);
-	}
+    int position = 0;
+    t_stack *temp = &var->a;
+    while (temp->val != value) {
+        temp = temp->next;
+        position++;
+    }
+    if (position < var->len_a - position) {
+        while (var->a.val != value)
+            ra(var);
+    }
+    else {
+        while (var->a.val != value)
+            rra(var);
+    }
 }
 
-int	chunks(t_meta *meta, int to_find)
+int	chunks(t_var *var, int to_find)
 {
 	int	i;
-
-	if (meta->a->len == 0)
-		return (1);
-
 		
-	chunks(meta, to_find + 1);
+	chunks(var, to_find + 1);
 	return (1);
 }

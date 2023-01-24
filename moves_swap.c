@@ -12,41 +12,35 @@
 
 #include "push_swap.h"
 
-void	sa(t_meta *meta)
+void sa(t_var *var)
 {
-	ft_print("sa");
-	if (meta->a->len >= 2)
-	{
-		meta->a->top_num = meta->a->nums[1];
-		meta->a->nums[1] = meta->a->nums[0];
-		meta->a->nums[0] = meta->a->top_num;
-	}	
+    int temp;
+	
+	ft_printf("sa");
+	temp = var->a.val;
+    var->a.val = var->a.next->val;
+    var->a.next->val = temp;
 }
 
-void	sb(t_meta *meta)
+void sb(t_var *var)
 {
-	ft_print("sb");
-	if (meta->b->len >= 2)
-	{
-		meta->b->top_num = meta->b->nums[1];
-		meta->b->nums[1] = meta->b->nums[0];
-		meta->b->nums[0] = meta->b->top_num;
-	}	
+    int temp;
+	
+	ft_printf("sb");
+	temp = var->b.val;
+    var->b.val = var->b.next->val;
+    var->b.next->val = temp;
 }
 
-void	ss(t_meta *meta)
+void ss(t_var *var)
 {
+	int temp;
+	
 	ft_printf("ss");
-	if (meta->a->len >= 2)
-	{
-		meta->a->top_num = meta->a->nums[1];
-		meta->a->nums[1] = meta->a->nums[0];
-		meta->a->nums[0] = meta->a->top_num;
-	}
-	if (meta->b->len >= 2)
-	{
-		meta->b->top_num = meta->b->nums[1];
-		meta->b->nums[1] = meta->b->nums[0];
-		meta->b->nums[0] = meta->b->top_num;
-	}
+	temp = var->a.val;
+    var->a.val = var->a.next->val;
+    var->a.next->val = temp;
+	temp = var->b.val;
+    var->b.val = var->b.next->val;
+    var->b.next->val = temp;
 }

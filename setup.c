@@ -12,23 +12,36 @@
 
 #include "push_swap.h"
 
-int	fill_nulls(t_meta *meta)
+void setup_init(t_var *var, int length)
 {
-	int	i;
-
-	meta->b->nums = malloc(sizeof(int) * (meta->total_nums + 1));
-	if (!meta->b->nums)
-		return (-1);
-	i = 0;
-	while (i < meta->total_nums + 1)
-		meta->b->nums[++i] = NULL;
-	return (1);
+    var->len_a = length;
+    var->len_b = 0;
+    var->moves = 0;
+    var->total_nums = length;
 }
 
-int	setup(t_meta *meta)
+int setup_loop(t_var *var, int *values)
 {
-	if (!fill_nulls(meta))
-		return (-1);
-	meta->b->len = 0;
-	meta->top_num->b = NULL	
+	t_stack *new_node;
+	int i;
+
+    var->a.val = values[0];
+    var->a.prev = &var->a;
+    var->a.next = &var->a;
+    i = 1;
+    new_node = &var->a;
+    while (i < var->len_a) {
+        new_node->next = (t_stack *)malloc(sizeof(t_stack));
+		if (!new_node->next)
+			return (-1);
+        new_node->next->prev = new_node;
+        new_node = new_node->next;
+        new_node->val = values[i];
+        i++;
+    }
+    new_node->next = &var->a;
+    var->a.prev = new_node;
+    var->b.prev = &var->b;
+    var->b.next = &var->b;
+	return (1);
 }
