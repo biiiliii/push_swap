@@ -14,33 +14,33 @@
 
 void sa(t_var *var)
 {
-    int temp;
+	int temp;
 	
-	ft_printf("sa");
+	printf("sa\n");
 	temp = var->a.val;
-    var->a.val = var->a.next->val;
-    var->a.next->val = temp;
+	var->a.val = var->a.next->val;
+	var->a.next->val = temp;
 }
 
 void sb(t_var *var)
 {
-    int temp;
+	int temp;
 	
-	ft_printf("sb");
+	printf("sb\n");
 	temp = var->b.val;
-    var->b.val = var->b.next->val;
-    var->b.next->val = temp;
+	var->b.val = var->b.next->val;
+	var->b.next->val = temp;
 }
 
 void ss(t_var *var)
 {
 	int temp;
 	
-	ft_printf("ss");
+	printf("ss\n");
 	temp = var->a.val;
-    var->a.val = var->a.next->val;
-    var->a.next->val = temp;
+	var->a.val = var->a.next->val;
+	var->a.next->val = temp;
 	temp = var->b.val;
-    var->b.val = var->b.next->val;
-    var->b.next->val = temp;
+	var->b.val = var->b.next->val;
+	var->b.next->val = temp;
 }

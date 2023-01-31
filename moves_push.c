@@ -16,7 +16,9 @@ void pa(t_var *var)
 {
 	t_stack *temp;
 
-    if (var->len_b > 0) {
+	printf("pa\n");
+    if (var->len_b > 0)
+	{
         temp = var->b.next;
         var->b.next = temp->next;
         temp->prev = &var->a;
@@ -31,7 +33,9 @@ void pb(t_var *var)
 {
 	t_stack *temp;
 
-    if (var->len_a > 0) {
+	printf("pb\n");
+    if (var->len_a > 0)
+	{
         temp = var->a.next;
         var->a.next = temp->next;
         temp->prev = &var->b;

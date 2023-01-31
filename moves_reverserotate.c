@@ -14,7 +14,7 @@
 
 void rra(t_var *var)
 {
-	ft_printf("rra");
+	printf("rra\n");
     if (var->len_a > 1) {
         var->a.prev->next = &var->a;
         var->a.next->prev = &var->a;
@@ -27,7 +27,7 @@ void rra(t_var *var)
 
 void rrb(t_var *var)
 {
-	ft_printf("rrb");
+	printf("rrb\n");
     if (var->len_b > 1) {
         var->b.prev->next = &var->b;
         var->b.next->prev = &var->b;
@@ -43,7 +43,7 @@ void rrr(t_var *var)
 	t_stack *temp_a;
 	t_stack *temp_b;
 
-	ft_printf("rrr");
+	printf("rrr\n");
     if (var->len_a > 1 && var->len_b > 1) {
         temp_a = var->a.next;
         temp_b = var->b.next;

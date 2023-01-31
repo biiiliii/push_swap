@@ -15,25 +15,50 @@
 void smart_search(t_var *var, int value)
 {
     int position = 0;
-    t_stack *temp = &var->a;
-    while (temp->val != value) {
+    t_stack *temp;
+    int len = var->len_a;
+    temp = &var->a;
+    while (temp->val != value)
+    {
+        if (position > len)
+        {
+            return;
+        }
         temp = temp->next;
         position++;
     }
-    if (position < var->len_a - position) {
+    if (position < var->len_a - position)
+    {
         while (var->a.val != value)
+        {
+            if (position > len)
+            {
+                return;
+            }
             ra(var);
+            position++;
+        }
     }
-    else {
+    else
+    {
         while (var->a.val != value)
+        {
+            if (position > len)
+            {
+                return;
+            }
             rra(var);
+            position++;
+        }
     }
 }
 
+
 int	chunks(t_var *var, int to_find)
 {
-	int	i;
-		
-	chunks(var, to_find + 1);
-	return (1);
+	if (to_find == var->total_nums - 1)
+		return (1);
+	smart_search(var, to_find);
+	pb(var);
+	return chunks(var, to_find + 1);
 }

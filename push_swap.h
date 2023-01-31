@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[includes]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+#include <stdlib.h>
+#include <stdio.h>
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Defines]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 
@@ -39,8 +41,32 @@ typedef struct s_var
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Error manager]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Setups]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+void		setup_init(t_var *var, int length);
+int			setup_loop(t_var *var, int *values);
+
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[setups]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+void		setup_init(t_var *var, int length);
+int			setup_loop(t_var *var, int *values);
+
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[moves]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+void		sa(t_var *var);
+void		sb(t_var *var);
+void		ss(t_var *var);
+void		pa(t_var *var);
+void		pb(t_var *var);
+void		ra(t_var *var);
+void		rb(t_var *var);
+void		rr(t_var *var);
+void		rra(t_var *var);
+void		rrb(t_var *var);
+void		rrr(t_var *var);
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[functions]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+int			ft_atoi(const char *str);
+int			*string_to_int(int argc, char **argv);
+void		smart_search(t_var *var, int value);
+int			chunks(t_var *var, int to_find);
+
 
 #endif

@@ -30,7 +30,8 @@ int setup_loop(t_var *var, int *values)
     var->a.next = &var->a;
     i = 1;
     new_node = &var->a;
-    while (i < var->len_a) {
+    while (i < var->len_a)
+	{
         new_node->next = (t_stack *)malloc(sizeof(t_stack));
 		if (!new_node->next)
 			return (-1);
