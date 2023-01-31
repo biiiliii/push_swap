@@ -23,4 +23,5 @@ int	error_manager(int argc, char **argv)
 				return (0);
 		}
 	}
+	return (1);
 }

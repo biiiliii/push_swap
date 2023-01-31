@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void ra(t_var *var)
+void	ra(t_var *var)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	printf("ra\n");
 	if (var->len_a > 1)
@@ -29,9 +29,9 @@ void ra(t_var *var)
 	}
 }
 
-void rb(t_var *var)
+void	rb(t_var *var)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	printf("rb\n");
 	if (var->len_b > 1)
@@ -46,10 +46,10 @@ void rb(t_var *var)
 	}
 }
 
-void rr(t_var *var)
+void	rr(t_var *var)
 {
-	t_stack *temp_a;
-	t_stack *temp_b;
+	t_stack	*temp_a;
+	t_stack	*temp_b;
 
 	printf("rr\n");
 	if (var->len_a > 1 && var->len_b > 1)

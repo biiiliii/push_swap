@@ -12,45 +12,46 @@
 
 #include "push_swap.h"
 
-void smart_search(t_var *var, int value)
+void	smart_search(t_var *var, int value)
 {
-    int position = 0;
-    t_stack *temp;
-    int len = var->len_a;
-    temp = &var->a;
-    while (temp->val != value)
-    {
-        if (position > len)
-        {
-            return;
-        }
-        temp = temp->next;
-        position++;
-    }
-    if (position < var->len_a - position)
-    {
-        while (var->a.val != value)
-        {
-            if (position > len)
-            {
-                return;
-            }
-            ra(var);
-            position++;
-        }
-    }
-    else
-    {
-        while (var->a.val != value)
-        {
-            if (position > len)
-            {
-                return;
-            }
-            rra(var);
-            position++;
-        }
-    }
+	int		position;
+	t_stack	*temp;
+	int		len;
+
+	len = var->len_a;
+	position = 0;
+	temp = &var->a;
+	while (temp->val != value)
+	{
+		if (position > len)
+			return ;
+		temp = temp->next;
+		position++;
+	}
+	if (position < var->len_a - position)
+	{
+		while (var->a.val != value)
+		{
+			if (position > len)
+			{
+				return ;
+			}
+			ra(var);
+			position++;
+		}
+	}
+	else
+	{
+		while (var->a.val != value)
+		{
+			if (position > len)
+			{
+				return ;
+			}
+			rra(var);
+			position++;
+		}
+	}
 }
 
 
@@ -60,5 +61,5 @@ int	chunks(t_var *var, int to_find)
 		return (1);
 	smart_search(var, to_find);
 	pb(var);
-	return chunks(var, to_find + 1);
+	return (chunks(var, to_find + 1));
 }
