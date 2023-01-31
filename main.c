@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_var	var;
 
-	setup_init(&var, 4);
+	setup_init(&var, argc - 1);
 	setup_loop(&var, string_to_int(argc, argv));
 	chunks(&var, 0);
-	return (9);
+	return (0);
 }

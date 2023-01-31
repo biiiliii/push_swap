@@ -14,8 +14,8 @@
 # define PUSH_SWAP_H
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[includes]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-#include <stdlib.h>
-#include <stdio.h>
+# include <stdlib.h>
+# include <stdio.h>
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Defines]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 
@@ -23,9 +23,9 @@
 
 typedef struct s_stack
 {	
-	int val;
-	struct s_stack *next;
-	struct s_stack *prev;
+	int				val;
+	struct s_stack	*next;
+	struct s_stack	*prev;
 }	t_stack;
 
 typedef struct s_var

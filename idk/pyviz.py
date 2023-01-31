@@ -22,10 +22,13 @@ Execute the script with :
 --> python3 pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
 You can change the PUSHS_PATH to get to the relative path of your push_swap
 You can decrease or increase the speed with the matching buttons.
+
+
+python3 idk/pyviz.py `ruby -e "puts (0..7).to_a.shuffle.join(' ')"`
 """
 
 
-RELATIVE_PATH = r'push_swap'
+RELATIVE_PATH = r'../push_swap'
 
 
 class PsGui:

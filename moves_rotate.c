@@ -19,13 +19,13 @@ void	ra(t_var *var)
 	printf("ra\n");
 	if (var->len_a > 1)
 	{
-		var->a.prev->next = &var->a;
-		var->a.next->prev = &var->a;
-		temp = var->a.prev;
-		var->a.prev = temp->prev;
-		var->a.prev->next = &var->a;
-		var->a.next = temp;
-		temp->prev = &var->a;
+		temp = var->a.next;
+		var->a.next = temp->next;
+		temp->next->prev = &var->a;
+		temp->prev = var->a.prev;
+		temp->next = &var->a;
+		var->a.prev->next = temp;
+		var->a.prev = temp;
 	}
 }
 

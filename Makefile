@@ -15,16 +15,16 @@ NAME = push_swap
 
 HEADER = push_swap.h
 
-SRC = 	ft_printf/ft_charnstr.c ft_printf/ft_printf.c ft_printf/ft_ptr.c ft_printf/ft_putnumbers.c \ 
-		moves_push.c moves_swap.c moves_rotate.c moves_reverserotate.c \
-		push_swap.c
+SRC = 	ft_printf/ft_charnstr.c ft_printf/ft_printf.c ft_printf/ft_ptr.c ft_printf/ft_putnumbers.c \
+		moves_push.c moves_swap.c moves_rotate.c moves_reverserotate.c setup.c read_input.c\
+		push_swap.c main.c
 	
 
 OBJ = $(SRC:.c=.o)
 
 DEPS = $(SRC:.c=.d)
 
-FLAGS = -Wall -Wextra -Werror -MMD -MP -g -I mlx
+FLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
@@ -48,7 +48,7 @@ all: $(NAME)
 -include $(DEPS)
 $(NAME) : $(OBJ)
 	@printf "$(CYAN)\r	=-=-=-=-=push_swap succesfully compiled.=-=-=-=-=\n$(DEF_COLOR)"
-	@gcc -Wall -g -Werror -Wextra -L. -lmlx -framework OpenGL -framework Appkit $(OBJ) -o $(NAME)
+	@gcc -Wall -g -Werror -Wextra $(OBJ) -o $(NAME)
 	
 
 clean :
