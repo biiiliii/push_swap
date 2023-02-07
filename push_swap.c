@@ -18,7 +18,7 @@ void	smart_search(t_var *var, int value)
 	int		moves;
 
 	moves = 0;
-	temp = &var->a;
+	temp = var->a;
 	while (temp->val != value && moves < var->len_a)
 	{
 		temp = temp->next;
@@ -26,7 +26,7 @@ void	smart_search(t_var *var, int value)
 	}
 	if (moves <= var->len_a / 2)
 	{
-		while (var->a.val != value && moves > 0)
+		while (var->a->val != value && moves > 0)
 		{
 			ra(var);
 			moves--;
@@ -35,7 +35,7 @@ void	smart_search(t_var *var, int value)
 	else
 	{
 		moves = var->len_a - moves;
-		while (var->a.val != value && moves > 0)
+		while (var->a->val != value && moves > 0)
 		{
 			rra(var);
 			moves--;
@@ -43,16 +43,22 @@ void	smart_search(t_var *var, int value)
 	}
 }
 
-int	chunks(t_var *var, int to_find)
+
+int	chunks(t_var *var)
 {
 	int	i;
-
-	(void)to_find;
+	int len_a;
+	len_a = var->len_a;
 	i = -1;
-	while (var->len_a > 0 && i < var->total_nums)
+	while (++i <= len_a)
 	{
-		smart_search(var, ++i);
+		smart_search(var, i);
 		pb(var);
 	}
+	printf("%i", var->b->val);
+	printf("%i", var->b->next->val);
+	printf("%i", var->b->next->next->val);
+	printf("%i", var->b->next->next->next->val);
+
 	return (1);
 }

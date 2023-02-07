@@ -20,29 +20,27 @@ void	setup_init(t_var *var, int length)
 	var->total_nums = length;
 }
 
-int	setup_loop(t_var *var, int *values)
+void setup_loop(t_var *var, int *values, int len)
 {
-	t_stack	*new_node;
-	int		i;
+    t_stack *current, *prev;
+    int i = 0;
 
-	var->a.val = values[0];
-	var->a.prev = &var->a;
-	var->a.next = &var->a;
-	i = 1;
-	new_node = &var->a;
-	while (i < var->len_a)
-	{
-		new_node->next = (t_stack *)malloc(sizeof(t_stack));
-		if (!new_node->next)
-			return (-1);
-		new_node->next->prev = new_node;
-		new_node = new_node->next;
-		new_node->val = values[i];
-		i++;
-	}
-	new_node->next = &var->a;
-	var->a.prev = new_node;
-	var->b.prev = &var->b;
-	var->b.next = &var->b;
-	return (1);
+    var->len_a = len;
+    var->a = (t_stack*)malloc(sizeof(t_stack));
+    var->a->val = values[0];
+    var->a->next = NULL;
+    var->a->prev = NULL;
+    prev = var->a;
+    while (i < len - 1)
+    {
+        current = (t_stack*)malloc(sizeof(t_stack));
+        current->val = values[++i];
+        current->next = NULL;
+        current->prev = prev;
+        prev->next = current;
+        prev = current;
+    }
+    current->next = var->a;
+    var->a->prev = current;
 }
+

@@ -14,10 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	t_var	var;
+	t_var	*var;
 
-	setup_init(&var, argc - 1);
-	setup_loop(&var, string_to_int(argc, argv));
-	chunks(&var, 0);
+	var = (t_var*)malloc(sizeof(t_var));
+	setup_init(var, argc - 1);
+	setup_loop(var, string_to_int(argc, argv), argc - 1);
+	chunks(var);
 	return (0);
 }

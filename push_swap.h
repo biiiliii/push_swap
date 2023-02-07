@@ -30,8 +30,8 @@ typedef struct s_stack
 
 typedef struct s_var
 {
-	struct s_stack		a;
-	struct s_stack		b;
+	struct s_stack		*a;
+	struct s_stack		*b;
 	int					len_a;
 	int					len_b;
 	int					moves;
@@ -43,11 +43,7 @@ typedef struct s_var
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Setups]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 void		setup_init(t_var *var, int length);
-int			setup_loop(t_var *var, int *values);
-
-/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[setups]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-void		setup_init(t_var *var, int length);
-int			setup_loop(t_var *var, int *values);
+void 		setup_loop(t_var *var, int *values, int len);
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[moves]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 void		sa(t_var *var);
@@ -66,7 +62,7 @@ void		rrr(t_var *var);
 int			ft_atoi(const char *str);
 int			*string_to_int(int argc, char **argv);
 void		smart_search(t_var *var, int value);
-int			chunks(t_var *var, int to_find);
+int			chunks(t_var *var);
 
 
 #endif
