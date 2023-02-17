@@ -14,49 +14,40 @@
 
 void rra(t_var *var)
 {
-	// t_stack *temp;
-
+	if (var->len_a <= 1)
+		return;
+	
+	t_stack *last_node = var->a;
+	t_stack *second_last_node = NULL;
 	printf("rra\n");
-	if (var->len_a > 1)
-		var->a = var->a->prev;
+
+	while (last_node->next)
+	{
+		second_last_node = last_node;
+		last_node = last_node->next;
+	}
+	
+	last_node->next = var->a;
+	var->a = last_node;
+	second_last_node->next = NULL;
 }
 
-void	rrb(t_var *var)
+void rrb(t_var *var)
 {
+	if (var->len_b <= 1)
+		return;
+
+	t_stack *last_node = var->b;
+	t_stack *second_last_node = NULL;
 	printf("rrb\n");
-	if (var->len_b > 1)
+
+	while (last_node->next)
 	{
-		var->b->prev->next = var->b;
-		var->b->next->prev = var->b;
-		var->b->prev = var->b->prev->prev;
-		var->b->prev->next = var->b;
-		var->b->next = var->b->next->next;
-		var->b->next->prev = var->b;
+		second_last_node = last_node;
+		last_node = last_node->next;
 	}
+	
+	last_node->next = var->b;
+	var->b = last_node;
+	second_last_node->next = NULL;
 }
-
-void	rrr(t_var *var)
-{
-	t_stack	*temp_a;
-	t_stack	*temp_b;
-
-	printf("rrr\n");
-	if (var->len_a > 1 && var->len_b > 1)
-	{
-		temp_a = var->a->next;
-		temp_b = var->b->next;
-		var->a->next->prev = var->a;
-		var->a->prev->next = var->a;
-		var->a->next = temp_b;
-		var->a->prev = temp_b->prev;
-		temp_b->prev->next = var->a;
-		temp_b->prev = var->a;
-		var->b->next->prev = var->b;
-		var->b->prev->next = var->b;
-		var->b->next = temp_a;
-		var->b->prev = temp_a->prev;
-		temp_a->prev->next = var->b;
-		temp_a->prev = var->b;
-	}
-}
-

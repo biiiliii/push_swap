@@ -12,39 +12,31 @@
 
 #include "push_swap.h"
 
-void	pa(t_var *var)
+void	pb(t_var *vars)
 {
-	t_stack	*temp;
-
-	printf("pa\n");
-	if (var->len_b > 0)
-	{
-		temp = var->b->next;
-		var->b->next = temp->next;
-		temp->prev = var->a;
-		temp->next = var->a;
-		var->a->prev = temp;
-		var->len_a++;
-		var->len_b--;
-	}
+	if (vars->len_a == 0)
+		return ;
+	
+	printf("pb\n");
+	t_stack *temp = vars->a;
+	vars->a = vars->a->next;
+	vars->len_a--;
+	
+	temp->next = vars->b;
+	vars->b = temp;
+	vars->len_b++;
 }
 
-void	pb(t_var *var)
+void pa(t_var *vars)
 {
-	t_stack	*temp;
+    if (vars->len_b == 0)
+        return;
 
-	if (var->len_a > 0)
-	{
-		printf("pb\n");
-		temp = var->a;
-		var->a = var->a->next;
-		var->a->prev = temp->prev;
-		var->a->prev->next = var->a;
-		temp->next = var->b;
-		temp->prev = var->b->prev;
-		var->b->next = var->b;
-		var->b = temp;
-		var->len_a--;
-		var->len_b++;
-	}
+    t_stack *temp = vars->b;
+    vars->b = vars->b->next;
+    vars->len_b--;
+
+    temp->next = vars->a;
+    vars->a = temp;
+    vars->len_a++;
 }

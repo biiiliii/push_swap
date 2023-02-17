@@ -66,3 +66,28 @@ int	*string_to_int(int argc, char **argv)
 	}
 	return (numbers);
 }
+
+int *get_order(int* values, int size)
+{
+    int* order = malloc(size * sizeof(int));
+    int i;
+	int j;
+	int count;
+
+	i = 0;
+    while (i < size)
+	{
+        j = 0;
+        count = 0;
+        while (j < size)
+		{
+            if (values[j] < values[i]) 
+                count++;
+            j++;
+        }
+        order[i] = count + 1;
+        i++;
+    }
+	order[i] = 0;
+    return (order);
+}

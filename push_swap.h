@@ -25,7 +25,6 @@ typedef struct s_stack
 {	
 	int				val;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
 typedef struct s_var
@@ -42,8 +41,7 @@ typedef struct s_var
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Error manager]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[Setups]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-void		setup_init(t_var *var, int length);
-void 		setup_loop(t_var *var, int *values, int len);
+t_var	*setup_program(int *values, int num_values);
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[moves]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 void		sa(t_var *var);
@@ -61,6 +59,8 @@ void		rrr(t_var *var);
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[functions]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 int			ft_atoi(const char *str);
 int			*string_to_int(int argc, char **argv);
+int			*get_order(int* values, int size);
+
 void		smart_search(t_var *var, int value);
 int			chunks(t_var *var);
 

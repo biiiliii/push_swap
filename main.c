@@ -16,9 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_var	*var;
 
-	var = (t_var*)malloc(sizeof(t_var));
-	setup_init(var, argc - 1);
-	setup_loop(var, string_to_int(argc, argv), argc - 1);
+	var = setup_program(get_order(string_to_int(argc, argv), argc - 1), argc - 1);
 	chunks(var);
 	return (0);
 }
