@@ -22,7 +22,7 @@ t_var	*setup_program(int *values, int num_values)
 	vars->len_b = 0;
 	vars->moves = 0;
 	vars->total_nums = num_values;
-
+	
 	i = num_values - 1;
 	while (i >= 0)
 	{

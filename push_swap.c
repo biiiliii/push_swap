@@ -36,6 +36,19 @@ void print_stack_b(t_var *var)
     printf("\n");
 }
 
+void	is_in_chunk(t_var *var)
+{
+	if (var->a->val < var->j * var->n_chunks)
+	{
+		pb(var);
+		var->cont++;
+		if (var->b->val < (var->j * var->n_chunks) - (var->n_chunks / 2))
+			rb(var);
+	}
+	else
+		ra(var);
+}
+
 void	smart_search(t_var *var, int value)
 {
 	t_stack	*temp;
@@ -53,6 +66,7 @@ void	smart_search(t_var *var, int value)
 		while (var->a->val != value && moves > 0)
 		{
 			ra(var);
+			is_in_chunk(var);
 			moves--;
 		}
 	}
@@ -62,6 +76,38 @@ void	smart_search(t_var *var, int value)
 		while (var->a->val != value && moves > 0)
 		{
 			rra(var);
+			is_in_chunk(var);
+			moves--;
+		}
+	}
+}
+
+void	smart_search_b(t_var *var, int value)
+{
+	t_stack	*temp;
+	int		moves;
+
+	moves = 0;
+	temp = var->b;
+	while (temp->val != value && moves < var->len_b)
+	{
+		temp = temp->next;
+		moves++;
+	}
+	if (moves <= var->len_b / 2)
+	{
+		while (var->b->val != value && moves > 0)
+		{
+			rb(var);
+			moves--;
+		}
+	}
+	else
+	{
+		moves = var->len_b - moves;
+		while (var->b->val != value && moves > 0)
+		{
+			rrb(var);
 			moves--;
 		}
 	}
@@ -69,14 +115,23 @@ void	smart_search(t_var *var, int value)
 
 int	chunks(t_var *var)
 {
-	int	i;
-	int len_a;
-	len_a = var->len_a;
-	i = 0;
-	while (++i <= len_a)	
+	var->n_chunks = var->total_nums > 100 ? 60 : 4;
+	var->j = 1;
+	var->cont = 0;
+	while (var->len_a > 0)
 	{
-		smart_search(var, i);
-		pb(var);
+		is_in_chunk(var);
+		if (var->cont == var->j * var->n_chunks - 1)
+			var->j++;
 	}
 	return (1);
+}
+
+void	final(t_var *var)
+{
+	while (var->len_b > 0)
+	{
+		smart_search_b(var, var->len_b);
+		pa(var);
+	}
 }

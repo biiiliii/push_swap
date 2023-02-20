@@ -35,6 +35,9 @@ typedef struct s_var
 	int					len_b;
 	int					moves;
 	int					total_nums;
+	int					cont;
+	int					n_chunks;
+	int					j;
 }	t_var;
 
 
@@ -63,6 +66,7 @@ int			*get_order(int* values, int size);
 
 void		smart_search(t_var *var, int value);
 int			chunks(t_var *var);
+void		final(t_var *var);
 
 
 #endif

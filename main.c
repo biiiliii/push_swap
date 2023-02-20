@@ -18,5 +18,6 @@ int	main(int argc, char **argv)
 
 	var = setup_program(get_order(string_to_int(argc, argv), argc - 1), argc - 1);
 	chunks(var);
+	final(var);
 	return (0);
 }
