@@ -18,7 +18,7 @@ void ra(t_var *var)
 		return ;
 	
 	t_stack	*last_node = var->a;
-	printf("ra");
+	printf("ra\n");
 	while (last_node->next)
 		last_node = last_node->next;
 	
@@ -33,7 +33,7 @@ void rb(t_var *var)
 		return;
 
 	t_stack *last_node = var->b;
-	printf("rb");
+	printf("rb\n");
 	while (last_node->next)
 		last_node = last_node->next;
 

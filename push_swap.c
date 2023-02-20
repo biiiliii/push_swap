@@ -78,7 +78,5 @@ int	chunks(t_var *var)
 		smart_search(var, i);
 		pb(var);
 	}
-	print_stack_a(var);
-	print_stack_b(var);
 	return (1);
 }

@@ -33,6 +33,8 @@ void pa(t_var *vars)
         return;
 
     t_stack *temp = vars->b;
+	printf("pa\n");
+
     vars->b = vars->b->next;
     vars->len_b--;
 
