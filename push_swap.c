@@ -96,26 +96,28 @@ void	smart_search_b(t_var *var, int value)
 	}
 	if (moves <= var->len_b / 2)
 	{
-		while (var->b->val != value && moves > 0)
+		while (var->b->val != value)
 		{
 			rb(var);
-			moves--;
+			if (var->b->val == value - 1)
+				pa(var);	
 		}
 	}
 	else
 	{
 		moves = var->len_b - moves;
-		while (var->b->val != value && moves > 0)
+		while (var->b->val != value)
 		{
 			rrb(var);
-			moves--;
+			if (var->b->val == value - 1)
+				pa(var);
 		}
 	}
 }
 
 int	chunks(t_var *var)
 {
-	var->n_chunks = var->total_nums > 100 ? 60 : 4;
+	var->n_chunks = var->total_nums > 100 ? 60 : 40;
 	var->j = 1;
 	var->cont = 0;
 	while (var->len_a > 0)
@@ -124,14 +126,13 @@ int	chunks(t_var *var)
 		if (var->cont == var->j * var->n_chunks - 1)
 			var->j++;
 	}
-	return (1);
-}
-
-void	final(t_var *var)
-{
 	while (var->len_b > 0)
 	{
 		smart_search_b(var, var->len_b);
 		pa(var);
+		if (var->len_a > 1)
+			if (var->a->val == var->a->next->val + 1)
+				sa(var);
 	}
+	return (1);
 }

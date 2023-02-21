@@ -66,7 +66,5 @@ int			*get_order(int* values, int size);
 
 void		smart_search(t_var *var, int value);
 int			chunks(t_var *var);
-void		final(t_var *var);
-
 
 #endif
