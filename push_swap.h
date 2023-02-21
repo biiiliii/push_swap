@@ -63,7 +63,7 @@ void		rrr(t_var *var);
 int			ft_atoi(const char *str);
 int			*string_to_int(int argc, char **argv);
 int			*get_order(int* values, int size);
-
+void		sort_three(t_var *var);
 void		smart_search(t_var *var, int value);
 int			chunks(t_var *var);
 

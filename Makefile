@@ -16,7 +16,7 @@ NAME = push_swap
 HEADER = push_swap.h
 
 SRC = 	ft_printf/ft_charnstr.c ft_printf/ft_printf.c ft_printf/ft_ptr.c ft_printf/ft_putnumbers.c \
-		moves_push.c moves_swap.c moves_rotate.c moves_reverserotate.c setup.c read_input.c\
+		moves_push.c moves_swap.c moves_rotate.c moves_reverserotate.c setup.c read_input.c short_cases.c \
 		push_swap.c main.c
 	
 
