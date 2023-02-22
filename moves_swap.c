@@ -16,7 +16,7 @@ void	sa(t_var *var)
 {
 	int	temp;
 
-	printf("sa\n");
+	ft_printf("sa\n");
 	temp = var->a->val;
 	var->a->val = var->a->next->val;
 	var->a->next->val = temp;
@@ -26,7 +26,7 @@ void	sb(t_var *var)
 {
 	int	temp;
 
-	printf("sb\n");
+	ft_printf("sb\n");
 	temp = var->b->val;
 	var->b->val = var->b->next->val;
 	var->b->next->val = temp;
@@ -36,7 +36,7 @@ void	ss(t_var *var)
 {
 	int	temp;
 
-	printf("ss\n");
+	ft_printf("ss\n");
 	temp = var->a->val;
 	var->a->val = var->a->next->val;
 	var->a->next->val = temp;

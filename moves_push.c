@@ -14,31 +14,30 @@
 
 void	pb(t_var *vars)
 {
+	t_stack	*temp;
+
 	if (vars->len_a == 0)
 		return ;
-	
-	printf("pb\n");
-	t_stack *temp = vars->a;
+	ft_printf("pb\n");
+	temp = vars->a;
 	vars->a = vars->a->next;
 	vars->len_a--;
-	
 	temp->next = vars->b;
 	vars->b = temp;
 	vars->len_b++;
 }
 
-void pa(t_var *vars)
+void	pa(t_var *vars)
 {
-    if (vars->len_b == 0)
-        return;
+	t_stack	*temp;
 
-    t_stack *temp = vars->b;
-	printf("pa\n");
-
-    vars->b = vars->b->next;
-    vars->len_b--;
-
-    temp->next = vars->a;
-    vars->a = temp;
-    vars->len_a++;
+	if (vars->len_b == 0)
+		return ;
+	temp = vars->b;
+	ft_printf("pa\n");
+	vars->b = vars->b->next;
+	vars->len_b--;
+	temp->next = vars->a;
+	vars->a = temp;
+	vars->len_a++;
 }

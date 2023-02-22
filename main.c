@@ -16,7 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_var	*var;
 
-	var = setup_program(get_order(string_to_int(argc, argv), argc - 1), argc - 1);
+	var = setup_program(get_order(string_to_int(argc, argv), argc - 1),
+			argc -1);
 	if (argc == 4)
 		sort_three(var);
 	//else if (argc == 5)

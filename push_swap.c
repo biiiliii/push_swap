@@ -12,30 +12,6 @@
 
 #include "push_swap.h"
 
-void print_stack_a(t_var *var)
-{
-    t_stack *temp = var->a;
-    printf("Stack A: ");
-    for (int i = 0; i < var->len_a; i++)
-    {
-        printf("%d ", temp->val);
-        temp = temp->next;
-    }
-    printf("\n");
-}
-
-void print_stack_b(t_var *var)
-{
-    t_stack *temp = var->b;
-    printf("Stack B: ");
-    for (int i = 0; i < var->len_b; i++)
-    {
-        printf("%d ", temp->val);
-        temp = temp->next;
-    }
-    printf("\n");
-}
-
 void	is_in_chunk(t_var *var)
 {
 	if (var->a->val < var->j * var->n_chunks)
@@ -54,30 +30,24 @@ void	smart_search(t_var *var, int value)
 	t_stack	*temp;
 	int		moves;
 
-	moves = 0;
+	moves = -1;
 	temp = var->a;
-	while (temp->val != value && moves < var->len_a)
-	{
+	while (temp->val != value && ++moves < var->len_a)
 		temp = temp->next;
-		moves++;
-	}
 	if (moves <= var->len_a / 2)
 	{
 		while (var->a->val != value && moves > 0)
 		{
 			ra(var);
 			is_in_chunk(var);
-			moves--;
 		}
 	}
 	else
 	{
-		moves = var->len_a - moves;
 		while (var->a->val != value && moves > 0)
 		{
 			rra(var);
 			is_in_chunk(var);
-			moves--;
 		}
 	}
 }
@@ -87,25 +57,21 @@ void	smart_search_b(t_var *var, int value)
 	t_stack	*temp;
 	int		moves;
 
-	moves = 0;
+	moves = -1;
 	temp = var->b;
-	while (temp->val != value && moves < var->len_b)
-	{
+	while (temp->val != value && ++moves < var->len_b)
 		temp = temp->next;
-		moves++;
-	}
 	if (moves <= var->len_b / 2)
 	{
 		while (var->b->val != value)
 		{
 			rb(var);
 			if (var->b->val == value - 1)
-				pa(var);	
+				pa(var);
 		}
 	}
 	else
 	{
-		moves = var->len_b - moves;
 		while (var->b->val != value)
 		{
 			rrb(var);
@@ -117,7 +83,10 @@ void	smart_search_b(t_var *var, int value)
 
 int	chunks(t_var *var)
 {
-	var->n_chunks = var->total_nums > 100 ? 60 : 40;
+	if (var->total_nums < 100)
+		var->n_chunks = 40;
+	else
+		var->n_chunks = 500 / 8;
 	var->j = 1;
 	var->cont = 0;
 	while (var->len_a > 0)
