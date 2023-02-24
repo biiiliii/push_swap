@@ -83,8 +83,8 @@ void	smart_search_b(t_var *var, int value)
 
 int	chunks(t_var *var)
 {
-	if (var->total_nums < 100)
-		var->n_chunks = 500 / 15;
+	if (var->total_nums <= 101)
+		var->n_chunks = 500 / 20;
 	else
 		var->n_chunks = 500 / 8;
 	var->j = 1;
