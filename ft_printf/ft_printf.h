@@ -6,7 +6,7 @@
 /*   By: bimartin <bimartin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:27:56 by bimartin          #+#    #+#             */
-/*   Updated: 2022/12/01 15:26:48 by bimartin         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:21:42 by bimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-# include <stdio.h>
+
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-[functions]-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 int			ft_printf(const char *str, ...);
 int			ft_strlen2(char *str);

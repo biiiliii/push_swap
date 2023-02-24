@@ -19,6 +19,8 @@ t_var	*setup_program(int *values, int num_values)
 	t_stack	*new_node;
 
 	vars = (t_var *)malloc(sizeof(t_var));
+	if (!vars)
+		return (NULL);
 	vars->a = NULL;
 	vars->b = NULL;
 	vars->len_a = num_values;
@@ -29,6 +31,8 @@ t_var	*setup_program(int *values, int num_values)
 	while (i >= 0)
 	{
 		new_node = (t_stack *)malloc(sizeof(t_stack));
+		if (!new_node)
+			return (NULL);
 		new_node->val = values[i];
 		new_node->next = vars->a;
 		vars->a = new_node;

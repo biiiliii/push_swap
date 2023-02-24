@@ -59,6 +59,8 @@ int	*string_to_int(int argc, char **argv)
 	int	i;
 
 	numbers = malloc(argc * sizeof(int));
+	if (!numbers)
+		return (NULL);
 	i = 0;
 	while (++i < argc)
 	{
@@ -75,6 +77,8 @@ int	*get_order(int *values, int size)
 	int	count;
 
 	order = malloc(size * sizeof(int));
+	if (!order)
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{

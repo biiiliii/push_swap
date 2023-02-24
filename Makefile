@@ -24,7 +24,7 @@ OBJ = $(SRC:.c=.o)
 
 DEPS = $(SRC:.c=.d)
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror 
 
 RM = rm -f
 
@@ -39,7 +39,7 @@ CYAN := \033[0;96m
 WHITE := \033[0;97m
 
 %.o : %.c
-	@printf "$(BLUE)	Compiling: $(YELLOW)$< $(DEF_COLOR)								\r"
+	@printf "$(BLUE)	Compiling: $(YELLOW)$< $(DEF_COLOR)                                 \r"
 	@$(CC) $(FLAGS) -c $< -o $@
 
 
@@ -48,7 +48,7 @@ all: $(NAME)
 -include $(DEPS)
 $(NAME) : $(OBJ)
 	@printf "$(CYAN)\r	=-=-=-=-=push_swap succesfully compiled.=-=-=-=-=\n$(DEF_COLOR)"
-	@gcc -Wall -g -Werror -Wextra $(OBJ) -o $(NAME)
+	@gcc -Wall -Werror -Wextra -g $(OBJ) -o $(NAME)
 	
 
 clean :

@@ -6,7 +6,7 @@
 /*   By: bimartin <bimartin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:40:12 by bimartin          #+#    #+#             */
-/*   Updated: 2023/02/22 15:00:40 by bimartin         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:25:31 by bimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ sa(var); swaps the first two numbers
 */
 void	sort_three(t_var *var)
 {
-	t_stack	*a;
+	// t_stack	*a;
 
-	a = var->a;
+	// a = var->a;
 	if (is_in_order(var))
 		return ;
 	// if ()
